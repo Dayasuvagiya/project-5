@@ -5,32 +5,10 @@ import {Switch,Route} from 'react-router-dom';
 import "./api/axiosDefault";
 import SignUp from "./pages/auth/SignUp";
 import SignIn from "./pages/auth/SignIn";
-import { createContext, useEffect, useState } from "react";
-import axios from "axios";
-
-
-export const CurrentUserContext = createContext();
-export const SetCurrentUserContext = createContext();
 
 function App() {
-  const [currentUser, setCurrentuser] = useState(null);
-
-  const handleMount = async () => {
-    try {
-      const { data } = await axios.get('dj-rest-auth/user/');
-      setCurrentuser(data);
-    } catch (err) {
-      console.log(err);
-    }
-  }
-
-  useEffect(() => {
-    handleMount();
-  }, []);
 
   return (
-    <CurrentUserContext.Provider value={currentUser}>
-      <SetCurrentUserContext.Provider value={setCurrentuser}> {/* Updated variable name */}
         <div className={styles.App}>
           <NavBar />
           <Container className={styles.Conta}>
@@ -43,8 +21,6 @@ function App() {
             </Switch>
           </Container>
         </div>
-      </SetCurrentUserContext.Provider>
-    </CurrentUserContext.Provider>
   );
 }
 
