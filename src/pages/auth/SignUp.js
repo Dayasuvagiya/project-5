@@ -29,12 +29,15 @@ const SignUp = () => {
  
   const handleSubmit = async(event) => {
     event.preventDefault();
-    try {
+    axios.post("https://react-api-p5-3222a1d91d69.herokuapp.com/dj-rest-auth/registration", {})
+    .then(res => console.log({ res }))
+    .catch(e => setError(e.response?.data));
+   /* try {
       await axios.post("/dj-rest-auth/registration/", signUpData);
       history.push("/signin");
     } catch (err){
       setError(err.response?.data)
-    }
+    } */
   };
 
   return (
