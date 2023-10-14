@@ -3,9 +3,23 @@ import { Navbar, Container, Nav } from "react-bootstrap";
 import logo from "./assets/logo.png";
 import styles from "../styles/Nav.module.css";
 import { NavLink } from "react-router-dom";
-import { useCurrentUser } from "../contexts/CurrentUserContext";
+import { useCurrentUser, useSetCurrentUser, } from "../contexts/CurrentUserContext";
+import Avatar from "./Avatar";
+import axios from "axios";
+
+
 const NavBar = () => {
   const currentUser = useCurrentUser();
+  const setCurrentUser = useSetCurrentUser();
+
+  const handleSignOut = async () => {
+    try {
+      await axios.post("dj-rest-auth/logout/");
+      setCurrentUser(null);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   const postIcon = (
     <NavLink 
@@ -14,7 +28,7 @@ const NavBar = () => {
       to="/posts/create"
     >
     <i class="fa-solid fa-square-plus"></i>
-    Add post
+    Add new Meal
     </NavLink>
   )
 
@@ -27,6 +41,23 @@ const NavBar = () => {
       >
         <i className="fas fa-stream"></i>Feed
       </NavLink>
+      
+      <NavLink
+        className={styles.NavLink}
+        activeClassName={styles.Active}
+        to="/items"
+        >
+          <i class="fa-solid fa-carrot"></i>Ingredients
+      </NavLink>
+
+      <NavLink
+        className={styles.NavLink}
+        activeClassName={styles.Active}
+        to="/recipes"
+        >
+          <i class="fa-solid fa-carrot"></i>Recipe
+      </NavLink>
+
       <NavLink
         className={styles.NavLink}
         activeClassName={styles.Active}
@@ -34,9 +65,11 @@ const NavBar = () => {
       >
         <i className="fas fa-heart"></i>Liked
       </NavLink>
+
       <NavLink className={styles.NavLink} to="/" onClick={handleSignOut}>
         <i className="fas fa-sign-out-alt"></i>Sign out
       </NavLink>
+
       <NavLink
         className={styles.NavLink}
         to={`/profiles/${currentUser?.profile_id}`}
@@ -92,7 +125,7 @@ const NavBar = () => {
               <i className="fa-solid fa-users"></i>
               About Us
             </NavLink>
-            {currentUser ? loggedInIcon : loggedOutIcon}
+            {currentUser ? loggedInIcons : loggedOutIcons}
           </Nav>
         </Navbar.Collapse>
       </Container>

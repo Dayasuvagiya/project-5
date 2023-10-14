@@ -15,8 +15,8 @@ const SignUp = () => {
       password: "",
       password2: "",
     });
-  const { username, password, password2 } = signUpData;
-  const [errors, setError] = useState({});
+    const { username, password, password2 } = signUpData;
+    const [errors, setError] = useState({});
 
   const history = useHistory();
 
