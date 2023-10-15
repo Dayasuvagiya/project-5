@@ -26,8 +26,7 @@ const NavBar = () => {
       className={styles.NavbarLink}
       activeClassName={styles.Active}
       to="/posts/create"
-    >
-    <i class="fa-solid fa-square-plus"></i>
+    > <i class="fa-solid fa-square-plus"></i>
     Add new Meal
     </NavLink>
   )
@@ -35,43 +34,39 @@ const NavBar = () => {
   const loggedInIcons = (
     <>
       <NavLink
-        className={styles.NavLink}
+        className={styles.NavbarLink}
         activeClassName={styles.Active}
         to="/feed"
-      >
-        <i className="fas fa-stream"></i>Feed
+      ><i className="fas fa-stream"></i>Feed
       </NavLink>
       
       <NavLink
-        className={styles.NavLink}
+        className={styles.NavbarLink}
         activeClassName={styles.Active}
         to="/items"
-        >
-          <i class="fa-solid fa-carrot"></i>Ingredients
+        ><i class="fa-solid fa-carrot"></i>Ingredients
       </NavLink>
 
       <NavLink
-        className={styles.NavLink}
+        className={styles.NavbarLink}
         activeClassName={styles.Active}
         to="/recipes"
-        >
-          <i class="fa-solid fa-utensils"></i>Recipes
+        ><i class="fa-solid fa-utensils"></i>Recipes
       </NavLink>
 
       <NavLink
-        className={styles.NavLink}
+        className={styles.NavbarLink}
         activeClassName={styles.Active}
         to="/liked"
-      >
-        <i className="fas fa-heart"></i>Liked
+      ><i className="fas fa-heart"></i>Liked
       </NavLink>
 
-      <NavLink className={styles.NavLink} to="/" onClick={handleSignOut}>
+      <NavLink className={styles.NavbarLink} to="/" onClick={handleSignOut}>
         <i className="fas fa-sign-out-alt"></i>Sign out
       </NavLink>
 
       <NavLink
-        className={styles.NavLink}
+        className={styles.NavbarLink}
         to={`/profiles/${currentUser?.profile_id}`}
       >
         <Avatar src={currentUser?.profile_image} text="Profile" height={40} />
@@ -82,24 +77,22 @@ const NavBar = () => {
   const loggedOutIcons = (
     <>
       <NavLink
-        className={styles.NavLink}
+        className={styles.NavbarLink}
         activeClassName={styles.Active}
         to="/signin"
-      >
-        <i className="fas fa-sign-in-alt"></i>Sign in
+      ><i className="fas fa-sign-in-alt"></i>Sign in
       </NavLink>
       <NavLink
         to="/signup"
-        className={styles.NavLink}
+        className={styles.NavbarLink}
         activeClassName={styles.Active}
-      >
-        <i className="fas fa-user-plus"></i>Sign up
+      ><i className="fas fa-user-plus"></i>Sign up
       </NavLink>
     </>
   );
   
   return (
-    <Navbar expand="md" fixed="top" className={styles.NavBar}>
+    <Navbar expand="md" fixed="top" className={styles.NavbarLink}>
       <Container>
         <NavLink to="/">
           <Navbar.Brand>
