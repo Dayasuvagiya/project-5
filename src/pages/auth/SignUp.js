@@ -12,10 +12,10 @@ const SignUp = () => {
 
   const [signUpData, setSignUpData] = useState({
       username: "",
-      password: "",
+      password1: "",
       password2: "",
     });
-    const { username, password, password2 } = signUpData;
+    const { username, password1, password2 } = signUpData;
     const [errors, setError] = useState({});
 
   const history = useHistory();
@@ -28,16 +28,14 @@ const SignUp = () => {
   };
  
   const handleSubmit = async(event) => {
+    console.log({ signUpData });
     event.preventDefault();
-    axios.post("https://react-api-p5-3222a1d91d69.herokuapp.com/dj-rest-auth/registration", {})
-    .then(res => console.log({ res }))
-    .catch(e => setError(e.response?.data));
-   /* try {
+   try {
       await axios.post("/dj-rest-auth/registration/", signUpData);
       history.push("/signin");
     } catch (err){
       setError(err.response?.data)
-    } */
+    }
   };
 
   return (
@@ -64,18 +62,18 @@ const SignUp = () => {
               </Alert>
             ))}
 
-            <Form.Group controlId="password">
+            <Form.Group controlId="password1">
               <Form.Label className="d-none">Password</Form.Label>
               <Form.Control 
                 type="password" 
-                name="password" 
+                name="password1" 
                 placeholder="Password" 
                 className={styles.UserInput}
-                value={password}
+                value={password1}
                 onChange={handleChange}
                 />
             </Form.Group>
-            {errors.password?.map((message, idx) => (
+            {errors.password1?.map((message, idx) => (
               <Alert variant="warning" key={idx}>
                 {message}
               </Alert>

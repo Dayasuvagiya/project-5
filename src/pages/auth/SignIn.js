@@ -21,6 +21,16 @@ function SignIn() {
   const [errors, setError] = useState({});
 
   const history = useHistory();
+  const handleSubmit = async(event) => {
+    event.preventDefault();
+    try {
+      const {data} = await axios.post("/dj-rest-auth/login/", signInData);
+      setCurrentUser(data.user);
+      history.push("/");
+    } catch (err){
+      setError(err.response?.data);
+    }
+  };
 
   const handleChange = (event) => {
     setSignInData({
@@ -29,16 +39,6 @@ function SignIn() {
     }); 
   };
  
-  const handleSubmit = async(event) => {
-    event.preventDefault();
-    try {
-      const {data} = await axios.post("/dj-rest-auth/login/", signInData);
-      setCurrentUser(data.user)
-      history.push("/");
-    } catch (err){
-      setError(err.response?.data)
-    }
-  };
 
   return (
     <Row className={styles.Row}>
@@ -59,7 +59,7 @@ function SignIn() {
                 />
             </Form.Group>
             {errors.username?.map((message, idx) => (
-              <Alert variant="warning" key={idx}>
+              <Alert key={idx} variant="warning">
                 {message}
               </Alert>
             ))}
@@ -76,7 +76,7 @@ function SignIn() {
                 />
             </Form.Group>
             {errors.password?.map((message, idx) => (
-              <Alert variant="warning" key={idx}>
+              <Alert key={idx} variant="warning">
                 {message}
               </Alert>
             ))}
