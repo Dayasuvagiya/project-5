@@ -12,7 +12,7 @@ const NavBar = () => {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
 
-  const {expanded, setExpanded, ref} = useCurrentUser();
+  // const {expanded, setExpanded, ref} = useCurrentUser();
 
   const handleSignOut = async () => {
     try {
@@ -94,7 +94,7 @@ const NavBar = () => {
   );
   
   return (
-    <Navbar expanded={expanded} expand="md" fixed="top" className={styles.NavbarLink}>
+    <Navbar expand="md" fixed="top" className={styles.NavbarLink}>
       <Container>
         <NavLink to="/">
           <Navbar.Brand>
@@ -104,8 +104,8 @@ const NavBar = () => {
         </NavLink>
         {currentUser && postIcon}
         <Navbar.Toggle
-          ref = {ref}
-          onClick={() => setExpanded(!expanded)}
+          // ref = {ref}
+          // onClick={() => setExpanded(!expanded)}
           aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto text-left">
