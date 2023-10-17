@@ -29,7 +29,7 @@ const NavBar = () => {
       className={styles.NavbarLink}
       activeClassName={styles.Active}
       to="/posts/create"
-    > <i class="fa-solid fa-square-plus"></i>
+    > <i className="fa-solid fa-square-plus"></i>
     Add new Meal
     </NavLink>
   )
@@ -47,14 +47,14 @@ const NavBar = () => {
         className={styles.NavbarLink}
         activeClassName={styles.Active}
         to="/items"
-        ><i class="fa-solid fa-carrot"></i>Ingredients
+        ><i className="fa-solid fa-carrot"></i>Ingredients
       </NavLink>
 
       <NavLink
         className={styles.NavbarLink}
         activeClassName={styles.Active}
         to="/recipes"
-        ><i class="fa-solid fa-utensils"></i>Recipes
+        ><i className="fa-solid fa-utensils"></i>Recipes
       </NavLink>
 
       <NavLink
@@ -99,7 +99,7 @@ const NavBar = () => {
       expanded={expanded}
       expand="md" 
       fixed="top" 
-      className={styles.NavbarLink}
+      className={styles.NavBar}
     >
 
       <Container>
