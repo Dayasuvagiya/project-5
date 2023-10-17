@@ -1,4 +1,4 @@
-import React, { useState, useRef,  } from "react";
+import React, { useRef, useState } from "react";
 
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -29,8 +29,8 @@ function PostCreateForm() {
   });
   const { title, content, image } = postData;
 
-  const imageInput = useRef(null)
-  const history = useHistory()
+  const imageInput = useRef(null);
+  const history = useHistory();
 
   const handleChange = (event) => {
     setPostData({
@@ -62,9 +62,9 @@ function PostCreateForm() {
       history.push(`/posts/${data.id}`);
     } catch (err) {
       console.log(err);
-        if (err.response?.status !== 401) {
-          setErrors(err.response?.data);
-        }
+      if (err.response?.status !== 401) {
+        setErrors(err.response?.data);
+      }
     }
   };
 
@@ -79,13 +79,12 @@ function PostCreateForm() {
           onChange={handleChange}
         />
       </Form.Group>
-        {errors?.title?.map((message, idx) => (
+      {errors?.title?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
           {message}
         </Alert>
       ))}
 
-      
       <Form.Group>
         <Form.Label>Content</Form.Label>
         <Form.Control
