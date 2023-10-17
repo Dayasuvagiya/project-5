@@ -9,6 +9,7 @@ import PostCreateForm from "./pages/posts/PostCreateForm";
 import PostPage from "./pages/posts/PostPage";
 import PostsPage from "./pages/posts/PostsPage";
 import { useCurrentUser } from "./contexts/CurrentUserContext";
+import ListsPage from "./pages/ingredients/ListPage";
 
 function App() {
   const currentUser = useCurrentUser();
@@ -48,6 +49,16 @@ function App() {
               />              
               <Route exact path="/signin" render={() => <SignIn />} />
               <Route exact path="/signup" render={() => <SignUp />} />
+              <Route
+                exact
+                path="/items"
+                render={() =>
+                  <ListsPage
+                  message="No results found. Adjust the search keyword or add an item."
+                  filter={currentUser}
+                  />
+                }
+              />
               <Route exact path="/posts/create" render={() => <PostCreateForm />} />
               <Route exact path="/posts/:id" render={() => <PostPage />} />
               <Route render={() => <p>Page not found!</p>} />

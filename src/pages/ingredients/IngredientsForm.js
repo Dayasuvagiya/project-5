@@ -90,11 +90,12 @@ function ListCreateForm({ setItems }) {
       ))}
 
 
-      <Button className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.ButtonColor}`} type="submit">
+      <Button className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.ButtonColor} ${btnStyles.ButtonSpace}`} type="submit">
         Add Ingredients
       </Button>
       <Button
-        className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.ButtonColor}`}        onClick={handleCancel}
+        className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.ButtonColor} ${btnStyles.ButtonSpace}`}
+        onClick={handleCancel}
       >
         Cancel
       </Button>
