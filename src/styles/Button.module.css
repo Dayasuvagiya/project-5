@@ -52,17 +52,17 @@
   .BlackOutline:hover {
     /* background-color: #242a3d;
     color: white; */
-    background-color: #242a3d;
+    background-color: rgb(245, 96, 41);
     color: aliceblue;
   }
   
   .Black:hover,
   .BlackOutline {
     /* background-color: #dadadf;
-    color: #242a3d;
-    border-color: #242a3d; */
-    background-color: aliceblue;
-    color: #3d2f24;
+    color: #242a3d;*/
+    border-color: #242a3d; 
+    background-color: rgb(249, 183, 159);
+    color:  rgb(0, 0, 0);
   }
   
   .ButtonColor {
