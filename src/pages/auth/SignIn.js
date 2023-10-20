@@ -8,10 +8,12 @@ import styles from "../../styles/SigIn.module.css";
 import { Form, Button, Col, Row, Container, Alert, } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
+import { useRedirect } from "../../hooks/userRedirect";
 
 
 function SignIn() {
     const setCurrentUser = useSetCurrentUser();
+    useRedirect ('loggedIn')
 
   const [signInData, setSignInData] = useState({
       username: "",
@@ -26,7 +28,7 @@ function SignIn() {
     try {
       const {data} = await axios.post("/dj-rest-auth/login/", signInData);
       setCurrentUser(data.user);
-      history.push("/");
+      history.goBack();
     } catch (err){
       setError(err.response?.data);
     }

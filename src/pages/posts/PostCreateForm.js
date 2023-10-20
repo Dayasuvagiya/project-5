@@ -17,9 +17,10 @@ import btnStyles from "../../styles/Button.module.css";
 import Asset from "../../components/Asset";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq} from "../../api/axiosDefaults"
-
+import { useRedirect } from "../../hooks/userRedirect";
 
 function PostCreateForm() {
+  useRedirect ('loggedIn')
   const [errors, setErrors] = useState({});
 
   const [postData, setPostData] = useState({
