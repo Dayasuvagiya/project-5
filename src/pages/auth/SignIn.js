@@ -9,6 +9,7 @@ import { Form, Button, Col, Row, Container, Alert, } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
 import { useRedirect } from "../../hooks/userRedirect";
+import { setTokenTimestamp } from "../../utils/utils";
 
 
 function SignIn() {
@@ -28,6 +29,7 @@ function SignIn() {
     try {
       const {data} = await axios.post("/dj-rest-auth/login/", signInData);
       setCurrentUser(data.user);
+      setTokenTimestamp(data)
       history.goBack();
     } catch (err){
       setError(err.response?.data);
