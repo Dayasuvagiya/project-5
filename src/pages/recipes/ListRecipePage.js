@@ -9,8 +9,8 @@ import { fetchMoreData } from "../../utils/utils";
 import { axiosReq } from "../../api/axiosDefaults";
 import Asset from "../../components/Asset";
 import NoResults from "../../assets/no-results.png";
-import styles from "../../styles/ListsPage.module.css";
-import ListCreateForm from "./RecipesForm";
+import styles from "../../styles/ListRecipePage.module.css";
+import RecipesForm from "./RecipesForm";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { MoreDropdown } from "../../components/MoreDropdown";
 import btnStyles from "../../styles/Button.module.css";
@@ -24,11 +24,11 @@ function ListRecipePage({ message, filter = "" }) {
   const [editingRecipeId, setEditingRecipeId] = useState(null);
   const [editingRecipeName, setEditingRecipeName] = useState("");
   const [editingRecipeContent, setEditingRecipeContent] = useState("");
+  const [selectedRecipe, setSelectedRecipe] = useState({});
   console.log({ filter })
-  const handleEdit = (recipeId, recipeName, recipecontent) => {
-    setEditingRecipeId(recipeId);
-    setEditingRecipeName(recipeName);
-    setEditingRecipeContent(recipecontent);
+  const handleEdit = (recipeId) => {
+    const recipe = recipes.find(r => r.id === recipeId);
+    setSelectedRecipe(recipe);
   };
 
   const handleCancelEdit = () => {
@@ -112,7 +112,7 @@ function ListRecipePage({ message, filter = "" }) {
           />
         </Form>
 
-        <ListCreateForm setRecipes={setRecipes} />
+        <RecipesForm data={selectedRecipe} setRecipes={setRecipes} />
 
         {hasLoaded ? (
           <>
@@ -152,16 +152,16 @@ function ListRecipePage({ message, filter = "" }) {
                             </td>
                             
                             <td>
-                              <button className={`${btnStyles.Button} ${btnStyles.Green}`} onClick={() => handleSaveEdit(recipe.id)}>
+                              <button className={`${btnStyles.Button} ${btnStyles.Green} ${btnStyles.ButtonSpace}`} onClick={() => handleSaveEdit(recipe.id)}>
                                 Update
                               </button>
-                              <button className={`${btnStyles.Button} ${btnStyles.Green}`} onClick={handleCancelEdit}>Cancel</button>
+                              <button className={`${btnStyles.Button} ${btnStyles.Green} ${btnStyles.ButtonSpace}`} onClick={handleCancelEdit}>Cancel</button>
                             </td>
                           </>
                         ) : (
                           <>
-                            <td>{recipe.name}</td>
-                            <td>{recipe.content}</td>
+                            <td className={styles.RecipeContent}>{recipe.name}</td>
+                            <td className={styles.RecipeContent}>{recipe.content}</td>
                             <td>
                               <MoreDropdown
                                 handleEdit={() =>
