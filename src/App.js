@@ -15,6 +15,7 @@ import ProfilePage from "./pages/profiles/ProfilePage";
 import UsernameForm from "./pages/profiles/UsernameForm";
 import UserPasswordForm from "./pages/profiles/UserPasswordForm";
 import ProfileEditForm from "./pages/profiles/ProfileEditForm";
+import ListRecipePage from "./pages/recipes/ListRecipePage";
 
 function App() {
   const currentUser = useCurrentUser();
@@ -59,7 +60,17 @@ function App() {
                 path="/items"
                 render={() =>
                   <ListsPage
-                  message="No results found. Adjust the search keyword or add an item."
+                  message="No results found. Adjust the search keyword or add an ingredients."
+                  filter={currentUser}
+                  />
+                }
+                />
+                <Route
+                exact
+                path="/recipes"
+                render={() =>
+                  <ListRecipePage
+                  message="No results found. Adjust the search keyword or add recipe"
                   filter={currentUser}
                   />
                 }
