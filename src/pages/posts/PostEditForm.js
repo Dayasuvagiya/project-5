@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
@@ -7,11 +6,9 @@ import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Alert from "react-bootstrap/Alert";
 import Image from "react-bootstrap/Image";
-
 import styles from "../../styles/PostCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
-
 import { useHistory, useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 
@@ -23,8 +20,8 @@ function PostEditForm() {
     content: "",
     image: "",
   });
-  const { title, content, image } = postData;
 
+  const { title, content, image } = postData;
   const imageInput = useRef(null);
   const history = useHistory();
   const { id } = useParams();
@@ -34,10 +31,8 @@ function PostEditForm() {
       try {
         const { data } = await axiosReq.get(`/posts/${id}/`);
         const { title, content, image, is_owner } = data;
-
         is_owner ? setPostData({ title, content, image }) : history.push("/");
       } catch (err) {
-        console.log(err);
       }
     };
 
@@ -71,12 +66,10 @@ function PostEditForm() {
     if (imageInput?.current?.files[0]) {
       formData.append("image", imageInput.current.files[0]);
     }
-
     try {
       await axiosReq.put(`/posts/${id}/`, formData);
       history.push(`/posts/${id}`);
     } catch (err) {
-      console.log(err);
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }
@@ -121,6 +114,7 @@ function PostEditForm() {
         onClick={() => history.goBack()}      >
         Cancel
       </Button>
+      
       <Button 
         className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.ButtonColor} ${btnStyles.ButtonSpace} `} type="submit">
         Create

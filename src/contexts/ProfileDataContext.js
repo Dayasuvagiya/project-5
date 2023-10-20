@@ -4,13 +4,11 @@ import { useCurrentUser } from "../contexts/CurrentUserContext";
 import { followHelper } from "../utils/utils";
 import { unfollowHelper } from "../utils/utils";
 
-
 const ProfileDataContext = createContext();
 const SetProfileDataContext = createContext();
 
 export const useProfileData = () => useContext(ProfileDataContext);
 export const useSetProfileData = () => useContext(SetProfileDataContext);
-
 export const ProfileDataProvider = ({ children }) => {
   const [profileData, setProfileData] = useState({
 
@@ -41,7 +39,6 @@ export const ProfileDataProvider = ({ children }) => {
         },
       }));
     } catch (err) {
-      console.log(err);
     }
   };
 
@@ -63,7 +60,6 @@ export const ProfileDataProvider = ({ children }) => {
         },
       }));
     } catch (err) {
-      console.log(err);
     }
   };
 
@@ -78,10 +74,8 @@ export const ProfileDataProvider = ({ children }) => {
           popularProfiles: data,
         }));
       } catch (err) {
-        console.log(err);
       }
     };
-
     handleMount();
   }, [currentUser]);
 

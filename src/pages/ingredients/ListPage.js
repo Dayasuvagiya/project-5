@@ -24,7 +24,7 @@ function ListsPage({ message, filter = "" }) {
   const [editingItemId, setEditingItemId] = useState(null);
   const [editingItemName, setEditingItemName] = useState("");
   const [editingItemQuantity, setEditingItemQuantity] = useState("");
-  console.log({ filter })
+
   const handleEdit = (itemId, itemName, itemQuantity) => {
     setEditingItemId(itemId);
     setEditingItemName(itemName);
@@ -38,7 +38,6 @@ function ListsPage({ message, filter = "" }) {
   };
 
   const handleSaveEdit = async (itemId) => {
-    console.log(itemId);
     try {
       await axiosReq.put(`/items/${itemId}/`, {
         name: editingItemName,
@@ -60,7 +59,6 @@ function ListsPage({ message, filter = "" }) {
       setEditingItemName("");
       setEditingItemQuantity("");
     } catch (err) {
-      console.log(err);
     }
   };
 
@@ -71,7 +69,6 @@ function ListsPage({ message, filter = "" }) {
         await axiosReq.delete(`/items/${itemId}/`);
         setItems((prevItems) => prevItems.filter((item) => item.id !== itemId));
       } catch (err) {
-        console.log(err);
       }
     }
   };
@@ -86,7 +83,6 @@ function ListsPage({ message, filter = "" }) {
         setItems(filteredLists);
         setHasLoaded(true);
       } catch (err) {
-        console.log(err);
       }
     };
 

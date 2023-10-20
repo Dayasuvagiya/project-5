@@ -4,7 +4,6 @@ import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 import axios from "axios";
 import styles from "../../styles/SigIn.module.css";
-
 import { Form, Button, Col, Row, Container, Alert, } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
@@ -20,10 +19,12 @@ function SignIn() {
       username: "",
       password: "",
     });
+
   const { username, password } = signInData;
   const [errors, setError] = useState({});
 
   const history = useHistory();
+
   const handleSubmit = async(event) => {
     event.preventDefault();
     try {
@@ -42,7 +43,6 @@ function SignIn() {
       [event.target.name]: event.target.value,
     }); 
   };
- 
 
   return (
     <Row className={styles.Row}>
@@ -91,7 +91,6 @@ function SignIn() {
               >
                 Sign In
             </Button>
-
             {errors.non_field_errors?.map((message, idx) => (
               <Alert key={idx} variant="warning" className="mt-3">
                 {message}

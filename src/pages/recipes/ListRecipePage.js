@@ -38,7 +38,6 @@ function ListRecipePage({ message, filter = "" }) {
   };
 
   const handleSaveEdit = async (recipeId) => {
-    console.log(recipeId);
     try {
       await axiosReq.put(`/recipes/${recipeId}/`, {
         name: editingRecipeName,
@@ -60,7 +59,6 @@ function ListRecipePage({ message, filter = "" }) {
       setEditingRecipeName("");
       setEditingRecipeContent("");
     } catch (err) {
-      console.log(err);
     }
   };
 
@@ -71,7 +69,6 @@ function ListRecipePage({ message, filter = "" }) {
         await axiosReq.delete(`/recipes/${recipeId}/`);
         setRecipes((prevRecipes) => prevRecipes.filter((recipe) => recipe.id !== recipeId));
       } catch (err) {
-        console.log(err);
       }
     }
   };
@@ -86,7 +83,6 @@ function ListRecipePage({ message, filter = "" }) {
         setRecipes(filteredLists);
         setHasLoaded(true);
       } catch (err) {
-        console.log(err);
       }
     };
 
@@ -146,6 +142,7 @@ function ListRecipePage({ message, filter = "" }) {
                                 onChange={(e) => setEditingRecipeName(e.target.value)}
                               />
                             </td>
+
                             <td>
                               <Form.Control
                                 value={editingRecipeContent}
@@ -153,6 +150,7 @@ function ListRecipePage({ message, filter = "" }) {
                                 type="number"
                               />
                             </td>
+                            
                             <td>
                               <button className={`${btnStyles.Button} ${btnStyles.Green}`} onClick={() => handleSaveEdit(recipe.id)}>
                                 Update

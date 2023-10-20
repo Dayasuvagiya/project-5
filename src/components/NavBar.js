@@ -12,7 +12,6 @@ import { removeTokenTimestamp } from "../utils/utils";
 const NavBar = () => {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
-
   const { expanded, setExpanded, ref } = useClickOutsideToggle();
 
   const handleSignOut = async () => {
@@ -21,7 +20,6 @@ const NavBar = () => {
       setCurrentUser(null);
       removeTokenTimestamp();
     } catch (err) {
-      console.log(err);
     }
   };
 
@@ -86,6 +84,7 @@ const NavBar = () => {
         to="/signin"
       ><i className="fas fa-sign-in-alt"></i>Sign in
       </NavLink>
+
       <NavLink
         to="/signup"
         className={styles.NavbarLink}
@@ -102,7 +101,6 @@ const NavBar = () => {
       fixed="top" 
       className={styles.NavBar}
     >
-
       <Container>
         <NavLink to="/">
           <Navbar.Brand>

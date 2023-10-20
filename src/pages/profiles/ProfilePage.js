@@ -1,15 +1,11 @@
 import React, { useEffect, useState } from "react";
-
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
-
 import Asset from "../../components/Asset";
-
 import styles from "../../styles/ProfilePage.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
-
 import PopularProfiles from "./PopularProfiles";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { useParams } from "react-router";
@@ -53,7 +49,6 @@ function ProfilePage() {
         setProfilePosts(profilePosts);
         setHasLoaded(true);
       } catch (err) {
-        console.log(err);
       }
     };
     fetchData();
@@ -77,10 +72,12 @@ function ProfilePage() {
               <div>{profile?.posts_count}</div>
               <div>posts</div>
             </Col>
+
             <Col xs={3} className="my-2">
               <div>{profile?.followers_count}</div>
               <div>followers</div>
             </Col>
+            
             <Col xs={3} className="my-2">
               <div>{profile?.following_count}</div>
               <div>following</div>

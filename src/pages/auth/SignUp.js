@@ -4,7 +4,6 @@ import styles from "../../styles/SignUp.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 import axios from "axios";
-
 import { Form, Button, Image, Col, Row, Container, Alert, } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import { useRedirect } from "../../hooks/userRedirect";
@@ -29,7 +28,6 @@ const SignUp = () => {
   };
  
   const handleSubmit = async(event) => {
-    console.log({ signUpData });
     event.preventDefault();
    try {
       await axios.post("/dj-rest-auth/registration/", signUpData);
@@ -96,13 +94,13 @@ const SignUp = () => {
                 {message}
               </Alert>
             ))}
+
             <Button 
               type="submit"
               className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.ButtonColor}`}
               >
                 Sign Up
             </Button>
-
             {errors.non_field_errors?.map((message, idx) => (
               <Alert key={idx} variant="warning" className="mt-3">
                 {message}

@@ -35,7 +35,6 @@ function ListCreateForm({ setItems }) {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
-
     formData.append("name", name);
     formData.append("quantity", quantity);
 
@@ -46,10 +45,8 @@ function ListCreateForm({ setItems }) {
       setPostData({ name: "", quantity: "" });
       setErrors({});
     } catch (err) {
-      console.log(err);
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
-        console.log(err.response.data);
       }
     }
   };
@@ -93,6 +90,7 @@ function ListCreateForm({ setItems }) {
       <Button className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.ButtonColor} ${btnStyles.ButtonSpace}`} type="submit">
         Add Ingredients
       </Button>
+      
       <Button
         className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.ButtonColor} ${btnStyles.ButtonSpace}`}
         onClick={handleCancel}
