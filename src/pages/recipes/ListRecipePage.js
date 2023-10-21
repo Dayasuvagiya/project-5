@@ -14,6 +14,8 @@ import RecipesForm from "./RecipesForm";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { MoreDropdown } from "../../components/MoreDropdown";
 import btnStyles from "../../styles/Button.module.css";
+import { NotificationManager} from 'react-notifications';
+
 
 function ListRecipePage({ message, filter = "" }) {
   const currentUser = useCurrentUser();
@@ -25,6 +27,7 @@ function ListRecipePage({ message, filter = "" }) {
   const [editingRecipeName, setEditingRecipeName] = useState("");
   const [editingRecipeContent, setEditingRecipeContent] = useState("");
   const [selectedRecipe, setSelectedRecipe] = useState({});
+
   console.log({ filter })
   const handleEdit = (recipeId) => {
     const recipe = recipes.find(r => r.id === recipeId);
@@ -42,6 +45,7 @@ function ListRecipePage({ message, filter = "" }) {
       await axiosReq.put(`/recipes/${recipeId}/`, {
         name: editingRecipeName,
         content: editingRecipeContent,
+        
       });
       setRecipes((prevRecipes) =>
         prevRecipes.map((recipe) => {
@@ -68,6 +72,9 @@ function ListRecipePage({ message, filter = "" }) {
       try {
         await axiosReq.delete(`/recipes/${recipeId}/`);
         setRecipes((prevRecipes) => prevRecipes.filter((recipe) => recipe.id !== recipeId));
+        if(recipeId) {
+          NotificationManager.warning('Delete a recipe');
+        }
       } catch (err) {
       }
     }

@@ -9,6 +9,7 @@ import { useHistory } from "react-router-dom";
 import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
 import { useRedirect } from "../../hooks/userRedirect";
 import { setTokenTimestamp } from "../../utils/utils";
+import { NotificationManager} from 'react-notifications';
 
 
 function SignIn() {
@@ -29,6 +30,9 @@ function SignIn() {
     event.preventDefault();
     try {
       const {data} = await axios.post("/dj-rest-auth/login/", signInData);
+      if(data) {
+        NotificationManager.success('Successfully login');
+      }
       setCurrentUser(data.user);
       setTokenTimestamp(data)
       history.goBack();

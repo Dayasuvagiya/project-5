@@ -17,6 +17,8 @@ import UsernameForm from "./pages/profiles/UsernameForm";
 import UserPasswordForm from "./pages/profiles/UserPasswordForm";
 import ProfileEditForm from "./pages/profiles/ProfileEditForm";
 import ListRecipePage from "./pages/recipes/ListRecipePage";
+import {NotificationContainer} from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
 
 function App() {
   const currentUser = useCurrentUser();
@@ -98,6 +100,7 @@ function App() {
               <Route render={() => <NotFound />} />
             </Switch>
           </Container>
+          <NotificationContainer />
         </div>
   );
 }

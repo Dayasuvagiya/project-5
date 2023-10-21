@@ -6,6 +6,8 @@ import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import Alert from "react-bootstrap/Alert";
 import { axiosReq } from "../../api/axiosDefaults";
+import { NotificationManager} from 'react-notifications';
+
 
 function ListCreateForm({ setItems }) {
   const [errors, setErrors] = useState({});
@@ -41,6 +43,9 @@ function ListCreateForm({ setItems }) {
     try {
       const { data } = await axiosReq.post("/items/", formData);
       const newItem = data ?? {};
+      if(event) {
+        NotificationManager.success('Successfully Added Ingredient');
+      }
       setItems((prevItems) => [newItem, ...prevItems]);
       setPostData({ name: "", quantity: "" });
       setErrors({});

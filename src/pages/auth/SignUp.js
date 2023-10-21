@@ -7,6 +7,8 @@ import axios from "axios";
 import { Form, Button, Image, Col, Row, Container, Alert, } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import { useRedirect } from "../../hooks/userRedirect";
+import { NotificationManager} from 'react-notifications';
+
 
 const SignUp = () => {
   useRedirect ('loggedIn')
@@ -31,6 +33,9 @@ const SignUp = () => {
     event.preventDefault();
    try {
       await axios.post("/dj-rest-auth/registration/", signUpData);
+      if(event) {
+        NotificationManager.success('Successfully SignUp');
+      }
       history.push("/signin");
     } catch (err){
       setError(err.response?.data)

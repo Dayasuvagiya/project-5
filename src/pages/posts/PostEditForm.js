@@ -11,6 +11,8 @@ import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import { useHistory, useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
+import { NotificationManager} from 'react-notifications';
+
 
 function PostEditForm() {
   const [errors, setErrors] = useState({});
@@ -59,7 +61,6 @@ function PostEditForm() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
-
     formData.append("title", title);
     formData.append("content", content);
 
@@ -69,6 +70,9 @@ function PostEditForm() {
     try {
       await axiosReq.put(`/posts/${id}/`, formData);
       history.push(`/posts/${id}`);
+      if(event) {
+        NotificationManager.info('Successfully updated');
+      }
     } catch (err) {
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);

@@ -6,6 +6,8 @@ import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import Alert from "react-bootstrap/Alert";
 import { axiosReq } from "../../api/axiosDefaults";
+import { NotificationManager } from 'react-notifications';
+
 
 function RecipesForm({ data, setRecipes }) {
   const [errors, setErrors] = useState({});
@@ -36,6 +38,9 @@ function RecipesForm({ data, setRecipes }) {
   };
 
   const handleSubmit = async (event) => {
+    if(event) {
+      NotificationManager.success('Successfully Added Recipe');
+    }
     event.preventDefault();
     const formData = new FormData();
 
@@ -44,10 +49,8 @@ function RecipesForm({ data, setRecipes }) {
 
     try {
       if(postData.id) {
-        console.log({ formData })
       const { data } = await axiosReq.put(`/recipes/${postData.id}/`, postData);
       if(data) {
-        console.log(data);
         setRecipes(prevRecipes => {
           const updatedRecipes = prevRecipes.map(recipe => {
             if (recipe.id === data.id) {

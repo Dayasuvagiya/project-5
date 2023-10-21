@@ -14,6 +14,7 @@ import ListCreateForm from "./IngredientsForm";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { MoreDropdown } from "../../components/MoreDropdown";
 import btnStyles from "../../styles/Button.module.css";
+import { NotificationManager} from 'react-notifications';
 
 function ListsPage({ message, filter = "" }) {
   const currentUser = useCurrentUser();
@@ -38,6 +39,9 @@ function ListsPage({ message, filter = "" }) {
   };
 
   const handleSaveEdit = async (itemId) => {
+    if(itemId) {
+      NotificationManager.info('Successfully updated');
+    }
     try {
       await axiosReq.put(`/items/${itemId}/`, {
         name: editingItemName,
@@ -67,6 +71,10 @@ function ListsPage({ message, filter = "" }) {
     if (confirmed) {
       try {
         await axiosReq.delete(`/items/${itemId}/`);
+        if(itemId) {
+          NotificationManager.warning('Delete an Ingredient');
+      }
+        
         setItems((prevItems) => prevItems.filter((item) => item.id !== itemId));
       } catch (err) {
       }

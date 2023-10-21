@@ -19,6 +19,8 @@ import btnStyles from "../../styles/Button.module.css";
 import { useHistory } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useRedirect } from "../../hooks/userRedirect";
+import { NotificationManager} from 'react-notifications';
+
 
 function PostCreateForm() {
   useRedirect("loggedOut");
@@ -54,7 +56,6 @@ function PostCreateForm() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
-
     formData.append("title", title);
     formData.append("content", content);
     formData.append("image", imageInput.current.files[0]);
@@ -62,6 +63,9 @@ function PostCreateForm() {
     try {
       const { data } = await axiosReq.post("/posts/", formData);
       history.push(`/posts/${data.id}`);
+      if(event) {
+        NotificationManager.success('Successfully Created post');
+      }
     } catch (err) {
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
