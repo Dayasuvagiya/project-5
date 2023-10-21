@@ -6,6 +6,8 @@ import { Link, useHistory } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
 import { MoreDropdown } from "../../components/MoreDropdown";
+import { NotificationManager} from 'react-notifications';
+
 
 const Post = (props) => {
   const {
@@ -33,10 +35,13 @@ const Post = (props) => {
     history.push(`/posts/${id}/edit`);
   };
 
-  const handleDelete = async () => {
+  const handleDelete = async (event) => {
     try {
       await axiosRes.delete(`/posts/${id}/`);
       history.goBack();
+      if(event) {
+        NotificationManager.warning('Delete a Post');
+    }
     } catch (err) {
     }
   };
