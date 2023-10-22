@@ -11,7 +11,7 @@ import { NotificationManager} from 'react-notifications';
 
 
 const SignUp = () => {
-  useRedirect ('loggedIn')
+  useRedirect ('loggedIn');
   const [signUpData, setSignUpData] = useState({
       username: "",
       password1: "",
@@ -38,7 +38,7 @@ const SignUp = () => {
       }
       history.push("/signin");
     } catch (err){
-      setError(err.response?.data)
+      setError(err.response?.data);
     }
   };
 

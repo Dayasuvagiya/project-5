@@ -14,7 +14,7 @@ import { NotificationManager} from 'react-notifications';
 
 function SignIn() {
     const setCurrentUser = useSetCurrentUser();
-    useRedirect ('loggedIn')
+    useRedirect ('loggedIn');
 
   const [signInData, setSignInData] = useState({
       username: "",
@@ -34,7 +34,7 @@ function SignIn() {
         NotificationManager.success('Successfully login');
       }
       setCurrentUser(data.user);
-      setTokenTimestamp(data)
+      setTokenTimestamp(data);
       history.goBack();
     } catch (err){
       setError(err.response?.data);

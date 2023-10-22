@@ -18,8 +18,8 @@ This fictional site was created for Portfolio Project #5 (Advanced Front End) - 
     * [Objective](<#objective>)
     * [Site Users Goal](<#site-users-goal>)
     * [Project Management](<#project-management>)
-        *[Github Project Board](<#github-project-board>)
-        *[Database Schema](<#database-schema>)
+        * [Github Project Board](<#github-project-board>)
+        * [Database Schema](<#database-schema>)
 
 - [User Experience (UX)](<#user-experience-ux>)
     * [Wireframes](<#wireframes>)
