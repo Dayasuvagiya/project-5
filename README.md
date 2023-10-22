@@ -31,8 +31,8 @@ This fictional site was created for Portfolio Project #5 (Advanced Front End) - 
     * [Navigation](#navigation)
     * [Authentication](#authentication)
     * [Homepage](#homepage)
-      *[Popular Profiles Component](#popular-profiles-component)
-      *[Searchbar](#searchbar)
+      * [Popular Profiles Component](#popular-profiles-component)
+      * [Searchbar](#searchbar)
     * [Feed](#feed)
     * [Add New Meal](#add-new-meal)
     * [Ingredients](#ingredients)
@@ -49,16 +49,16 @@ This fictional site was created for Portfolio Project #5 (Advanced Front End) - 
 - [Hooks](#hooks)
 
 - [Technology](#technology)
-    *[Languages](#languages)
-    *[Frameworks and Software](#frameworks-and-software)
-    *[Libraries](#libraries)
+    * [Languages](#languages)
+    * [Frameworks and Software](#frameworks-and-software)
+    * [Libraries](#libraries)
 
 - [Testing](#testing)
-    *[Automated tests](#automated-tests)
-    *[Manual testing](#manual-testing)
+    * [Automated tests](#automated-tests)
+    * [Manual testing](#manual-testing)
 
 - [Deployment](#deployment)
-    *[Deployment to Heroku](#deployment-to-heroku)
+    * [Deployment to Heroku](#deployment-to-heroku)
 
 - [Bugs](#bugs)
 - [Credits](#credits)
@@ -88,28 +88,30 @@ This fictional site was created for Portfolio Project #5 (Advanced Front End) - 
 
     All the models have been set up in a separate DRF repository. Click [here](https://github.com/Dayasuvagiya/react.api) to view the repository or [here](https://react-api-p5-3222a1d91d69.herokuapp.com/) to view the deployed API.
 
+[Back to top](<#table-of-contents>)
 
-    # **User Experience (UX)**
+# **User Experience (UX)**
 
-    ## Wireframes
+## Wireframes
 
     The wireframes for the site were created in the software [Balsamiq](https://balsamiq.com). The wireframes have been created principally for desktop devices as this is a browser based platform. However, the wesbite is responsive for tablet and mobile. The main grid layout of the components is initially based on the CI Moments walkthrough tutorial as this seems to me the best layout both for wider desktops as for smaller mobile devices for a content sharing platform so I didn't see much reason to change it or find many areas where I could improve on it. Any differences are down to personalised content that fits the project goals.
 
     <details><summary><b>Wireframes</b></summary>
-    ![Post Page](images/home_wf.png)
-    ![Post Page2](images/page_before_login.png)
-    ![Signin Page](images/signin_wf.png)
-    ![Signup Page](images/signup_wf.png)
-    ![Profile Page](images/profile_wf.png)
-    ![Create Post Page](images/post_wf.png)
-    ![User Post Page](images/wf2.png)
-    ![Ingredient Page](images/ingredient_wf.png)
-    ![Recipe Page](images/recipe_wf.png)
+    - [Post Page](images/home_wf.png)
+    - [Post Page2](images/page_before_login.png)
+    - [Signin Page](images/signin_wf.png)
+    - [Signup Page](images/signup_wf.png)
+    - [Profile Page](images/profile_wf.png)
+    - [Create Post Page](images/post_wf.png)
+    - [User Post Page](images/wf2.png)
+    - [Ingredient Page](images/ingredient_wf.png)
+    - [Recipe Page](images/recipe_wf.png)
 
-    </details><br/>
+[Back to top](<#table-of-contents>)
 
-    ## User Stories
+## User Stories
 Here I have listed the main user stories for a user who is not logged in, or has no account and a logged in user. These user stories were then tested and confirmed in the [Testing](<#testing>) section.
+
 
 ### Logged Out Site User
 |  | | |
@@ -176,6 +178,8 @@ Color scheme reflects the warm and inviting world of culinary delights. Antique 
 - 'Playfair Display', serif: This elegant and timeless serif font brings a touch of classic refinement to our platform. It is used for headings, titles, and other prominent text elements, adding an air of distinction to our content.
 
 - 'Roboto', sans-serif: The 'Roboto' sans-serif font provides a modern, clean, and legible typeface for the body text and other essential content. It ensures readability and a seamless reading experience across all devices.
+
+[Back to top](<#table-of-contents>)
 
 # **Existing Features**
 
@@ -302,6 +306,8 @@ Only the user who posted the comment can edit or delete it.
 ## Page not found
 If the user tries a url that dont exist on Foodies Fanclub, they are redirected to a `Page not found`, which let them redirect back to the home page. 
 
+![Page not found](images/pagenotfound.png)
+
 ## Notification
 
 Foodies Fanclub platform provides users with real-time notifications to keep them informed about the success of various actions. Users will receive notifications for key events, such as successful login and logout, signing up, editing and deleting content, as well as creating new posts. These notifications ensure that users are always aware of the outcome of their actions, enhancing the overall user experience and keeping them informed about their interactions on the platform.
@@ -309,7 +315,7 @@ Foodies Fanclub platform provides users with real-time notifications to keep the
 ![Notification](images/notification.png)
 ![Notification](images/notification2.png)
 
-![Page not found](images/pagenotfound.png)
+[Back to top](<#table-of-contents>)
 
 * ## Reusable React Components
 
