@@ -86,7 +86,7 @@ This fictional site was created for Portfolio Project #5 (Advanced Front End) - 
 
     ### Database Schema
 
-    All the models have been set up in a separate DRF repository. Click [here](https://github.com/Dayasuvagiya/react.api) to view the repository or [here](https://react-api-p5-3222a1d91d69.herokuapp.com/) to view the deployed API.
+    All the models have been set up in a separate DRF repository. Click [here](https://github.com/Dayasuvagiya/react_api) to view the repository or [here](https://react-api-p5-3222a1d91d69.herokuapp.com/) to view the deployed API.
 
 [Back to top](<#table-of-contents>)
 
