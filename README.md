@@ -406,7 +406,7 @@ Foodies Fanclub have been continualy tested manually troughout development and a
 
 ### Deployment to Heroku
 
-Once you have created a new gitpod workspace and set up the new project, you are ready to deploy to Heroku. 
+Once you have created a new VScode workspace and set up the new project, you are ready to deploy to Heroku. 
 
 1. In your heroku account, select Create New App, and give it a unique name related to your project. 
 2. Select a region corresponding to where you live and click 'Create App'.
@@ -420,8 +420,8 @@ Once you have set up the workspace and done a basic deploy to Heroku, you can co
 
 1. In the Heroku dashboard, go into the API application settings
 2. In 'Settings' add a new Config Var called 'CLIENT_ORIGIN' and set that to the URL for your deployed React application. In my case, this would be [https://project-react-5-90ce600c5df4.herokuapp.com/](https://happening-react.herokuapp.com).
-3. Then add another Config Var called 'CLIENT_ORIGIN_DEV' and enter the URL of your Gitpod preview link, remembering to remove the trailing slash at the end. Gitpod occasionally changes this URL so keep an eye on it, as you are working on your project. 
-4. Go back into your frontend Gitpod workspace, and install the Axios library using the command 'npm install axios'.
+3. Then add another Config Var called 'CLIENT_ORIGIN_DEV' and enter the URL of your VScode preview link, remembering to remove the trailing slash at the end. Vscode occasionally changes this URL so keep an eye on it, as you are working on your project. 
+4. Go back into your frontend Vscode workspace, and install the Axios library using the command 'npm install axios'.
 5. Create a folder called 'API' and inside it create a file called 'axiosDefaults'.
 6. import axios at the top of the file
 7. Define your baseURL which is the unique URL of your deployed API project. In my case this would be [https://react-api-p5-3222a1d91d69.herokuapp.com/]
