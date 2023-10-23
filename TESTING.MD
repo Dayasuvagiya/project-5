@@ -36,8 +36,8 @@ As well as the automatic tests, I carried out the following additional manual te
 | Status | **Authentication - User Logged Out**
 |:-------:|:--------|
 | &check; | Typing 'https://project-react-5-90ce600c5df4.herokuapp.com/feed' url into the browser, the user can not access the feed page. User is redirected Home
-| &check; | Typing 'https://project-react-5-90ce600c5df4.herokuapp.com/interested' url into the browser, the user views the homepage posts feed
-| &check; | Typing 'https://project-react-5-90ce600c5df4.herokuapp.com/ingredients' url into the browser, the user is redirected back to the homepage
+| &check; | Typing 'https://project-react-5-90ce600c5df4.herokuapp.com/liked' url into the browser, the user views the homepage posts feed
+| &check; | Typing 'https://project-react-5-90ce600c5df4.herokuapp.com/items' url into the browser, the user is redirected back to the homepage
 | &check; | Typing 'https://project-react-5-90ce600c5df4.herokuapp.com/posts/create' url into the browser, the user is redirected back to the homepage
 | &check; | Typing 'https://project-react-5-90ce600c5df4.herokuapp.com/profiles/{id}/edit' url into the browser, the user is redirected back to the homepage
 | &check; | Typing 'https://project-react-5-90ce600c5df4.herokuapp.com/posts/{id}/edit' url into the browser, the user is redirected back to the homepage

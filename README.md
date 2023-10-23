@@ -90,13 +90,13 @@ This fictional site was created for Portfolio Project #5 (Advanced Front End) - 
 
 [Back to top](<#table-of-contents>)
 
-# **User Experience (UX)**
+# User Experience (UX)
 
 ## Wireframes
 
-    The wireframes for the site were created in the software [Balsamiq](https://balsamiq.com). The wireframes have been created principally for desktop devices as this is a browser based platform. However, the wesbite is responsive for tablet and mobile. The main grid layout of the components is initially based on the CI Moments walkthrough tutorial as this seems to me the best layout both for wider desktops as for smaller mobile devices for a content sharing platform so I didn't see much reason to change it or find many areas where I could improve on it. Any differences are down to personalised content that fits the project goals.
+The wireframes for the site were created in the software [Balsamiq](https://balsamiq.com). The wireframes have been created principally for desktop devices as this is a browser based platform. However, the wesbite is responsive for tablet and mobile. The main grid layout of the components is initially based on the CI Moments walkthrough tutorial as this seems to me the best layout both for wider desktops as for smaller mobile devices for a content sharing platform so I didn't see much reason to change it or find many areas where I could improve on it. Any differences are down to personalised content that fits the project goals.
 
-    <details><summary><b>Wireframes</b></summary>
+Wireframes
     - [Post Page](images/home_wf.png)
     - [Post Page2](images/page_before_login.png)
     - [Signin Page](images/signin_wf.png)
